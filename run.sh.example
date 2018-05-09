@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# IF you have VulkanSDK installed, a script like this can help set your
+# env variables every time you run it.
+
+SDKVER=1.0.68.0
+SDK="/FIXME/${SDKVER}"
+
+export LD_LIBRARY_PATH=${SDK}/x86_64/lib
+export VK_LAYER_PATH=${SDK}/x86_64/etc/explicit_layer.d
+# on windows:
+#export VK_LAYER_PATH=${SDK}/Bin
+
+cargo build || exit 1
+
+# Enable layers here, if desired:
+# export VK_INSTANCE_LAYERS="VK_LAYER_GOOGLE_threading:VK_LAYER_LUNARG_parameter_validation:VK_LAYER_LUNARG_object_tracker:VK_LAYER_LUNARG_core_validation:VK_LAYER_LUNARG_swapchain:VK_LAYER_GOOGLE_unique_objects"
+export VK_INSTANCE_LAYERS=VK_LAYER_LUNARG_standard_validation
+
+RUST_BACKTRACE=1 RUST_LOG=info target/debug/siege-example-client ./siege.toml
