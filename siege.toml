@@ -1,0 +1,87 @@
+# siege-example-client configuration
+# ----------------------------------
+
+# Code: Log Level:  Use one of "error", "warn", "info", "debug", or "trace" (use lowercase).
+# Each level logs all levels above it.
+#
+# Default is "info"
+#
+code_log_level = "info"
+
+# Code: Log File/Line:  If true, log messages include rust module, file, and line number.
+# Default is true
+#
+code_log_fileline = false
+
+# Code: log detailed errors
+#
+code_log_detailed_errors = false
+
+[window]
+
+# Fullscreen?
+#
+fullscreen = false
+
+# Screen to display the fullscreen window on.  Normally this is 0, but if it is coming
+# up on the wrong screen for you, change it to the screen number you desire.
+# (ignored if not using fullscreen mode)
+#
+screen_number = 0
+
+# Width of window at start (ignored if fullscreen is true)
+#
+width = 1280
+
+# Height of window at start (ignored if fullscreen is true)
+#
+height = 720
+
+[graphics]
+
+[graphics.renderer]
+
+# Path to assets
+#
+asset_path = "./assets"
+
+# Vulkan: Log Level:  Use one of "error", "warning", "performance_warning", "information",
+# or "debug" (use lowercase snake_case). Each level logs all levels above it.
+#
+# Default is derived from code_log_level.
+#
+vulkan_log_level = "performance_warning"
+
+# Vulkan layers. Use the full layer name (see the VulkanSDK). Specify as an array.
+#
+# vulkan_layers = [ "VK_LAYER_LUNARG_standard_validation" ]
+vulkan_layers = [ ]
+
+# FPS cap (throttle to maximum FPS listed here).  Using an FPS cap can keep your CPU and
+# GPU from performing more work than is necessary.
+#
+fps_cap = 120
+
+# Reversed depth buffer?
+#
+reversed_depth_buffer = true
+
+# Tonemapper
+#
+# Clamp, Reinhard, Exposure, HybridLogGamma, Falsecolor
+tonemapper = "Reinhard"
+
+[network]
+
+# Server public key. Leave this commented out to use the official server.
+#
+# server_public_key =
+
+# Server address. Leave this commented out to use the official server.
+#
+# server_socket_addr =
+
+# Connect on startup. This currently defaults to false, as we don't use the network
+# for anything yet.
+#
+connect_on_startup = true

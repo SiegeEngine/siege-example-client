@@ -1,0 +1,40 @@
+[package]
+name = "siege-example-client"
+version = "0.1.0"
+authors = ["Mike Dilger <mike@optcomp.nz>"]
+description = "Siege Example Client Component"
+repository = "https://github.com/SiegeEngine/siege-example-client"
+readme = "README.md"
+license = "MIT"
+
+[dependencies]
+toml = "0.4"
+serde = "1.0"
+serde_derive = "1.0"
+error-chain = "0.11"
+log = "0.4"
+vks = "0.21"
+winit = "0.10"
+libc = "0.2.34"
+ring = "0.12"
+bincode = "1.0"
+zstd = "0.4"
+chrono = { version="0.4", features = [ "serde" ] }
+bit-vec = "0.4"
+crossbeam = "0.3"
+chashmap = "2.2"
+mio = "0.6"
+ddsfile = "0.2.3"
+dacite = { git = "https://gitlab.com/mikedilger/dacite.git" }
+dacite-winit = { git = "https://gitlab.com/mikedilger/dacite.git" }
+siege-net = { git = "https://github.com/SiegeEngine/siege-net.git" }
+siege-math = { git = "https://github.com/SiegeEngine/siege-math.git" }
+siege-mesh = { git = "https://github.com/SiegeEngine/siege-mesh.git" }
+siege-font = { git = "https://github.com/SiegeEngine/siege-font.git" }
+siege-render = { git = "https://github.com/SiegeEngine/siege-render.git" }
+siege-example-net = { git = "https://github.com/SiegeEngine/siege-example-net.git" }
+siege-plugin-avatar-simple = { git = "https://github.com/SiegeEngine/siege-plugin-avatar-simple.git" }
+
+[target.'cfg(windows)'.dependencies]
+user32-sys = "0.2"
+winapi = "0.2"
